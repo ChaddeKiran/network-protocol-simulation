@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TCP vs UDP Network Simulation</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- first load jquery -->
+        <script src="script.js"></script> <!-- then load your custom js -->
+    </head>
+    
+<body>
+    <div class="container">
+        <h1>TCP vs UDP Network Simulation</h1>
+        
+        <div class="control-panel">
+            <button id="tcp-btn" class="btn btn-tcp btn-active">TCP Mode</button>
+            <button id="udp-btn" class="btn btn-udp">UDP Mode</button>
+            <button id="send-btn" class="btn">Send Message</button>
+            
+            <div class="slider-container">
+                <span class="slider-label">Packet Drop Rate:</span>
+                <input type="range" id="drop-rate" min="0" max="100" value="30" step="10">
+                <span id="drop-rate-value">30%</span>
+            </div>
+            
+            <div class="slider-container">
+                <span class="slider-label">Animation Speed:</span>
+                <input type="range" id="anim-speed" min="1" max="5" value="3" step="1">
+                <span id="speed-value">Normal</span>
+            </div>
+        </div>
+        
+        <div class="network-simulation">
+            <div class="client">
+                <div class="machine-icon">
+                    <span style="font-size: 36px;">💻</span>
+                </div>
+                <div class="machine-label">Client</div>
+            </div>
+            
+            <div class="server">
+                <div class="machine-icon">
+                    <span style="font-size: 36px;">🖥️</span>
+                </div>
+                <div class="machine-label">Server</div>
+            </div>
+            
+            <div class="network-area">
+                <div class="router router-1">Router A</div>
+                <div class="router router-2">Router B</div>
+                <div class="router router-3">Router C</div>
+                <div class="router router-4">Router D</div>
+                
+                <div class="network-path path-1-2"></div>
+                <div class="network-path path-1-3"></div>
+                <div class="network-path path-2-4"></div>
+                <div class="network-path path-3-4"></div>
+            </div>
+            
+            <div class="message-container">
+                <input type="text" class="message-input" id="message-input" placeholder="Type your message here..." value="Hello, Server!">
+            </div>
+            
+            <div class="packet-inspection" id="packet-info"></div>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-progress" id="timeline-progress"></div>
+        </div>
+        
+        <div class="console-log" id="console-log"></div>
+        
+        <div class="protocol-info">
+            <h3 id="protocol-title">TCP (Transmission Control Protocol)</h3>
+            <div id="protocol-description">
+                TCP is a connection-oriented protocol that guarantees reliable and ordered delivery of data. It uses a three-way handshake (SYN, SYN-ACK, ACK) to establish a connection before data transfer, and ensures all packets are received in the correct order through sequence numbers and acknowledgments.
+            </div>
+        </div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
